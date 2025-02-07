@@ -1,0 +1,29 @@
+flowchart LR
+    User([👤 User]) --> Portal[🎓 Language Learning Portal]
+    
+    subgraph Activities[🎯 Learning Activities]
+        Chat[🤖 AI Chat Assistant]
+        Games[🎮 Educational Games]
+        Reading[📚 Reading Exercises]
+        Practice[✍️ Translation Practice]
+    end
+    
+    Portal --> Activities
+    
+    subgraph Backend[⚙️ Backend Services]
+        API[🔌 API Services]
+        DB[(🗄️ Database)]
+        LLM[🧠 AI Language Models]
+    end
+    
+    Activities --> Backend
+    
+    DB <--> API
+    API <--> LLM
+
+    classDef portal fill:#1f77b4,stroke:#fff,stroke-width:2px,color:#fff
+    classDef activities fill:#2ca02c,stroke:#333,stroke-width:2px,color:#fff
+    classDef backend fill:#f4a261,stroke:#333,stroke-width:2px,color:#fff
+    class Portal portal
+    class Activities activities
+    class Backend backend

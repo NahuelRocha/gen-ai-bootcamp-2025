@@ -1,0 +1,54 @@
+flowchart TB
+    User([👤 User]) --> Auth[🔒 Authentication & Authorization]
+    Auth --> Portal[🎓 Language Learning Portal]
+    Portal --> InputQuery[💬 Query/Interaction]
+    
+    subgraph Context["📚 Context Building"]
+        InputQuery --> RAG[🔍 RAG Pipeline]
+        LessonsDB[(📗 Lessons Database)] --> RAG
+        GrammarDB[(📘 Grammar Database)] --> RAG
+        UserProgress[(📊 User Progress)] --> RAG
+    end
+    
+    RAG --> InputGuard[🛡️ Input Guardrails]
+    InputGuard --> Cache{⚡ Cache}
+    
+    Cache -->|Cache Hit| Response[✅ Response]
+    Cache -->|Cache Miss| Router[🔀 Model Router]
+    
+    Router --> TeacherAPI[👨‍🏫 Teacher Model]
+    Router --> TranslatorAPI[🔄 Translator Model]
+    Router --> GameAPI[🎮 Game Model]
+    
+    TeacherAPI --> Scoring1[📊 Evaluation]
+    TranslatorAPI --> Scoring2[📊 Evaluation]
+    GameAPI --> Scoring3[📊 Evaluation]
+    
+    Scoring1 --> OutputGuard[🛡️ Output Guardrails]
+    Scoring2 --> OutputGuard
+    Scoring3 --> OutputGuard
+    
+    OutputGuard --> Response
+    
+    Response --> Agents{🤝 Learning Agents}
+    Agents -->|📝 Feedback| FeedbackAction[✍️ Generate Feedback]
+    Agents -->|📈 Progress| ProgressAction[📊 Update Progress]
+    Agents -->|💡 Hints| HintAction[💡 Provide Hints]
+    
+    Monitor[📈 Analytics & Monitoring] -.-> Context
+    Monitor -.-> Router
+    Monitor -.-> Response
+    
+    classDef security fill:#ff4f4f,stroke:#333,stroke-width:2px,color:#fff
+    classDef monitoring fill:#9370db,stroke:#333,stroke-width:2px,color:#fff
+    classDef storage fill:#f4a261,stroke:#333,stroke-width:2px,color:#fff
+    classDef model fill:#2ca02c,stroke:#333,stroke-width:2px,color:#fff
+    classDef process fill:#1f77b4,stroke:#fff,stroke-width:2px,color:#fff
+    classDef cache fill:#f9c74f,stroke:#333,stroke-width:2px,color:#000
+    
+    class Auth,InputGuard,OutputGuard security
+    class Monitor monitoring
+    class LessonsDB,GrammarDB,UserProgress storage
+    class TeacherAPI,TranslatorAPI,GameAPI model
+    class Router,Scoring1,Scoring2,Scoring3,Response,Agents process
+    class Cache cache
