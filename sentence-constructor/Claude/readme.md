@@ -2,7 +2,7 @@
 
 ## Model
 
-Claude Sonnet 3.5 - Anthropic
+Claude Sonnet 3.5 - Anthropic FREE (The free layer offers few interactions)
 
 ## Prompting Guides
 
