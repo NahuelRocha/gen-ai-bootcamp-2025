@@ -8,7 +8,7 @@ GPT-4 Turbo - OpenAI
 
 [OpenAI Prompt Engineering Guide](https://platform.openai.com/docs/guides/prompt-engineering)
 
-OpenAI provides general best practices for prompting, including techniques such as specifying role, setting clear instructions, using examples, and formatting output for better consistency.
+OpenAI recommends structuring prompts for ChatGPT-4 Turbo by being clear, concise, and specific. Define the role of the model, provide context, and break down complex tasks into simpler steps. Use direct instructions and examples to guide the model, and be specific about the desired format for the output.
 
 # Efficient Prompt Creation for ChatGPT
 
