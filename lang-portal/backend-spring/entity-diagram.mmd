@@ -1,0 +1,48 @@
+erDiagram
+    Word ||--o{ WordGroup : "belongs to"
+    Word {
+        Long id PK
+        String english
+        String spanish
+        String pronunciation
+        JSON parts
+        int correctCount
+        int wrongCount
+    }
+
+    Group ||--o{ WordGroup : "has"
+    Group {
+        Long id PK
+        String name
+        int wordsCount
+    }
+
+    WordGroup {
+        Long wordId FK
+        Long groupId FK
+    }
+
+    StudyActivity ||--o{ StudySession : "has"
+    StudyActivity {
+        Long id PK
+        String name
+        String url
+    }
+
+    StudySession ||--|| Group : "belongs to"
+    StudySession ||--o{ WordReviewItem : "has"
+    StudySession {
+        Long id PK
+        Long groupId FK
+        Long studyActivityId FK
+        Timestamp createdAt
+    }
+
+    WordReviewItem ||--|| Word : "reviews"
+    WordReviewItem {
+        Long id PK
+        Long wordId FK
+        Long studySessionId FK
+        Boolean correct
+        Timestamp createdAt
+    }
