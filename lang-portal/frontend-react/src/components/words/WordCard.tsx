@@ -33,7 +33,7 @@ export const WordCard = ({ word }: WordCardProps) => {
           </div>
           <div className="text-right">
             <Badge variant={getBadgeVariant(accuracy)} className="mb-2">
-              {accuracy}% Accuracy
+              {accuracy}% Precisión
             </Badge>
             <div className="text-xs text-muted-foreground">
               ✓ {word.correctCount} | ✗ {word.wrongCount}
@@ -61,23 +61,23 @@ export const WordCard = ({ word }: WordCardProps) => {
             </div>
           )}
           <div className="text-sm">
-            <p className="font-medium text-muted-foreground">Practice Stats:</p>
+            <p className="font-medium text-muted-foreground">Estadísticas:</p>
             <div className="mt-1 space-y-1">
               <div className="flex justify-between text-sm text-muted-foreground mb-1.5">
-                <span>Total Attempts:</span>
+                <span>Total Intentos:</span>
                 <span>{word.correctCount + word.wrongCount}</span>
               </div>
               <div className="flex justify-between text-sm text-muted-foreground">
-                <span>Correct:</span>
+                <span>Correctas:</span>
                 <span className="text-green-600">{word.correctCount}</span>
               </div>
               <div className="flex justify-between text-sm text-muted-foreground">
-                <span>Wrong:</span>
+                <span>Incorrectas:</span>
                 <span className="text-red-600">{word.wrongCount}</span>
               </div>
               <div className="mt-4">
                 <div className="flex justify-between text-sm text-muted-foreground mb-1.5">
-                  <span>Mastery Progress:</span>
+                  <span>Nivel de Dominio:</span>
                   <span>{accuracy}%</span>
                 </div>
                 <div className="w-full bg-gray-200 rounded-full h-2.5">

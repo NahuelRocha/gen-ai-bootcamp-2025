@@ -1,50 +1,59 @@
-# React + TypeScript + Vite
+# Lang Portal - Frontend API Documentation
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Project Description
 
-Currently, two official plugins are available:
+The Language Learning Portal is a prototype designed for a language learning school, serving four primary functions:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. **Vocabulary Inventory**: A comprehensive repository of vocabulary that learners can explore and study.
+2. **Score Tracking**: A record-keeping system that evaluates learners' performance on vocabulary practice, providing feedback on correct and incorrect answers.
+3. **Groups**: This feature is responsible for grouping and categorizing words into various categories such as "Greetings," "Family Members," "Adjectives," "Verbs," etc. Additionally, it provides insights into the user's proficiency with each group of words.
+4. **Learning App Launchpad**: A centralized platform that enables users to access various interactive learning applications seamlessly.
 
-## Expanding the ESLint configuration
+### Main Technologies Used
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+This project utilizes several key technologies to enhance functionality and user experience:
 
-- Configure the top-level `parserOptions` property like this:
+- **React**: A library for building user interfaces.
+- **Vite**: A fast build tool and development server.
+- **TypeScript**: Adds static typing to JavaScript for better code quality.
+- **Tailwind CSS**: A utility-first CSS framework for rapid UI development.
+- **shadCN**: A UI component library built on top of Tailwind CSS for faster development.
+- **Axios**: A promise-based HTTP client for API requests.
+- **Framer Motion**: A library for animations in React.
+- **React Router**: Enables navigation between components.
+- **Zustand**: A simple state management solution for React.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+### How to Run the Project
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+Follow these steps to set up and run the Language Learning Portal:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+1. **Clone the Repository**: 
+   ```bash
+   git clone <repository-url>
+   ```
+2. **Navigate to the Project Directory**
+   ```bash
+   cd lang-portal/frontend-react
+   ```
+3. **Install Dependencies**
+   ```bash
+   npm install
+   ```
+4. **Start the Development Server**
+   ```bash
+   npm run dev
+   ```
+5. You can view it in your browser at http://localhost:5173
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+
+## Dashboard Screenshot
+
+![Dashboard Screenshot](./lang-dashboard.png)
+
+## Project Video
+
+[Watch the Project Video](https://youtu.be/0NTRmIJqjqk)
+
+
+
+

@@ -8,18 +8,18 @@ export const Header = () => {
       <div className="container mx-auto px-4 py-3">
         <div className="flex items-center justify-between">
           <Link to={ROUTES.HOME} className="text-2xl font-bold text-primary">
-            Language Portal
+            Portal de idiomas
           </Link>
-          
+
           <nav className="flex items-center gap-6">
             <Link to={ROUTES.WORDS} className="text-sm font-medium hover:text-primary">
-              Words
+              Palabras
             </Link>
             <Link to={ROUTES.GROUPS.LIST} className="text-sm font-medium hover:text-primary">
-              Groups
+              Grupos
             </Link>
             <Link to={ROUTES.STUDY.HOME} className="text-sm font-medium hover:text-primary">
-              Study
+              Estudio
             </Link>
             <Button variant="outline">
               ES / EN

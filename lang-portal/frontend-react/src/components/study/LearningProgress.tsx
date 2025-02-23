@@ -1,5 +1,4 @@
 import { useWordsStore } from '../../store/useWordsStore';
-import { Progress } from "@/components/ui/progress";
 import { useEffect } from 'react';
 import { Card, CardContent, CardHeader } from '../ui/card';
 import { BookOpen, Badge } from 'lucide-react';
@@ -55,7 +54,17 @@ export const LearningProgress = () => {
                             </div>
                         </div>
                         <div className="space-y-2">
-                            <Progress value={progressPercentage} className="h-4 bg-green-200" />
+
+                            <div className="flex justify-between text-sm text-muted-foreground mb-1.5">
+                                <span className='text-sm font-medium text-muted-foreground'>Progreso actual:</span>
+                                <span>{progressPercentage.toPrecision(2)}%</span>
+                            </div>
+                            <div className="w-full bg-gray-200 rounded-full h-2.5">
+                                <div
+                                    className="bg-green-600 h-2.5 rounded-full transition-all"
+                                    style={{ width: `${progressPercentage}%` }}
+                                />
+                            </div>
                             <p className="text-xs text-center text-muted-foreground">
                                 {wordsCount.totalWordsLearned} de {wordsCount.totalWords} palabras dominadas
                             </p>

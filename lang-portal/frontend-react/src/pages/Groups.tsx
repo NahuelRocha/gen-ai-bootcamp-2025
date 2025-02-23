@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/pagination";
 import { WordFilters } from '@/components/words/WordFilters';
 import { Card, CardContent } from "@/components/ui/card";
+import { useNavigate } from 'react-router-dom';
 
 export const Groups = () => {
   const { groupId } = useParams();
@@ -29,6 +30,7 @@ export const Groups = () => {
     currentSortBy,
     currentOrder
   } = useGroupWordsStore();
+  const navigate = useNavigate();
 
   // Initial data fetch for groups
   useEffect(() => {
@@ -162,29 +164,29 @@ export const Groups = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {/* Overall Performance */}
             <div className="space-y-2">
-              <h3 className="text-sm font-medium">Overall Performance</h3>
+              <h3 className="text-sm font-medium">Rendimiento general</h3>
               <div className="flex items-center gap-2">
                 <div className="text-2xl font-bold">
                   {overallAccuracy}%
                 </div>
-                <span className="text-sm text-muted-foreground">Accuracy</span>
+                <span className="text-xl font-bold mt-1">Precisión</span>
               </div>
             </div>
 
             {/* Practice Stats */}
             <div className="space-y-2">
-              <h3 className="text-sm font-medium">Practice Statistics</h3>
+              <h3 className="text-sm font-medium">Estadísticas de práctica</h3>
               <div className="space-y-1">
                 <div className="flex justify-between text-sm">
-                  <span className="text-muted-foreground">Total Attempts:</span>
+                  <span className="text-muted-foreground">Intentos totales:</span>
                   <span>{totalAttempts}</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-muted-foreground">Correct:</span>
+                  <span className="text-muted-foreground">Correctos:</span>
                   <span className="text-green-600">{totalCorrect}</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-muted-foreground">Wrong:</span>
+                  <span className="text-muted-foreground">Incorrectos:</span>
                   <span className="text-red-600">{totalWrong}</span>
                 </div>
               </div>
@@ -192,7 +194,7 @@ export const Groups = () => {
 
             {/* Mastery Progress */}
             <div className="space-y-2">
-              <h3 className="text-sm font-medium">Mastery Progress</h3>
+              <h3 className="text-sm font-medium">Progreso de dominio</h3>
               <div className="space-y-1">
                 <div className="w-full bg-gray-200 rounded-full h-2.5">
                   <div
@@ -201,23 +203,23 @@ export const Groups = () => {
                   />
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-muted-foreground">Mastered:</span>
-                  <span>{masteredWords} of {totalWords}</span>
+                  <span className="text-muted-foreground">Dominados:</span>
+                  <span>{masteredWords} de {totalWords}</span>
                 </div>
               </div>
             </div>
 
             {/* Areas for Improvement */}
             <div className="space-y-2">
-              <h3 className="text-sm font-medium">Areas for Improvement</h3>
+              <h3 className="text-sm font-medium">Áreas de mejora</h3>
               <div className="space-y-1">
                 <div className="flex justify-between text-sm">
-                  <span className="text-muted-foreground">Struggling With:</span>
-                  <span className="text-red-600">{strugglingWords} words</span>
+                  <span className="text-muted-foreground">Luchando con:</span>
+                  <span className="text-red-600">{strugglingWords} palabras</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-muted-foreground">Not Practiced:</span>
-                  <span>{words.filter(w => w.correctCount + w.wrongCount === 0).length} words</span>
+                  <span className="text-muted-foreground">No practicadas:</span>
+                  <span>{words.filter(w => w.correctCount + w.wrongCount === 0).length} palabras</span>
                 </div>
               </div>
             </div>
@@ -232,10 +234,10 @@ export const Groups = () => {
     return (
       <div className="space-y-6">
         <div className="flex justify-between items-center">
-          <h1 className="text-3xl font-bold">Group Words</h1>
+          <h1 className="text-3xl font-bold">Palabras del grupo</h1>
           <div className="space-x-4">
-            <Button variant="outline">Add Words to Group</Button>
-            <Button>Study Now</Button>
+            <Button variant="outline">Agregar palabras al grupo</Button>
+            <Button onClick={() => navigate(`/study/group/${groupId}`)}>Estudiar ahora</Button>
           </div>
         </div>
 
@@ -250,7 +252,11 @@ export const Groups = () => {
         <WordList />
 
         {totalPages > 1 && (
-          <Pagination>
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={handlePageChange}
+          >
             <PaginationContent>
               <PaginationItem>
                 <PaginationPrevious
@@ -287,12 +293,12 @@ export const Groups = () => {
   return (
     <div className="space-y-6">
       <div className="flex justify-between items-center">
-        <h1 className="text-3xl font-bold">Word Groups</h1>
-        <Button>Create New Group</Button>
+        <h1 className="text-3xl font-bold">Grupos de palabras</h1>
+        <Button>Crear nuevo grupo</Button>
       </div>
 
       <Input
-        placeholder="Search groups..."
+        placeholder="Buscar grupos..."
         className="max-w-sm"
         value={searchQuery}
         onChange={(e) => handleSearch(e.target.value)}

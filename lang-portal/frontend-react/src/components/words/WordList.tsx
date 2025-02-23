@@ -8,7 +8,7 @@ export const WordList = () => {
   const { words: globalWords, loading: globalLoading, error: globalError } = useWordsStore();
   const { words: groupWords, loading: groupLoading, error: groupError } = useGroupWordsStore();
 
-  // Use the appropriate store based on context
+
   const words = groupId ? groupWords : globalWords;
   const loading = groupId ? groupLoading : globalLoading;
   const error = groupId ? groupError : globalError;

@@ -14,17 +14,17 @@ import { Link } from 'react-router-dom';
 const STUDY_ACTIVITIES: StudyActivity[] = [
   {
     id: 1,
-    name: 'Flashcards',
+    name: 'Tarjetas de memoria',
     url: '/study/flashcards'
   },
   {
     id: 2,
-    name: 'Multiple Choice',
+    name: 'Opción múltiple ',
     url: '/study/quiz'
   },
   {
     id: 3,
-    name: 'Writing Practice',
+    name: 'Práctica de escritura',
     url: '/study/writing'
   }
 ];
@@ -85,9 +85,9 @@ export const Study = () => {
   return (
     <div className="space-y-8">
       <div>
-        <h1 className="text-3xl font-bold mb-2">Choose Study Activity</h1>
+        <h1 className="text-3xl font-bold mb-2">Elige una actividad</h1>
         <p className="text-muted-foreground">
-          Select an activity to start studying your vocabulary
+          Selecciona una actividad para comenzar a estudiar tu vocabulario
         </p>
       </div>
 
@@ -105,11 +105,11 @@ export const Study = () => {
         <Card>
           <CardContent className="p-2 flex flex-col items-center justify-center min-h-[200px] gap-2">
             <AlertCircle className="w-8 h-8 text-yellow-500" />
-            <p className="text-xl font-semibold text-center">Select a word group first to start studying</p>
+            <p className="text-xl font-semibold text-center">Selecciona un grupo de palabras primero para comenzar a estudiar</p>
             <Button asChild className="mt-4">
               <Link to="/groups" className="gap-2">
                 <ArrowRight className="w-4 h-4" />
-                Choose Word Group
+                Selecciona un Grupo de Palabras
               </Link>
             </Button>
           </CardContent>

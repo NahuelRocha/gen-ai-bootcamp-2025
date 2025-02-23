@@ -16,14 +16,14 @@ export const ActivityCard = ({ activity, onSelect }: ActivityCardProps) => {
       <CardContent>
         <div className="space-y-4">
           <p className="text-sm text-muted-foreground">
-            Practice your vocabulary with {activity.name.toLowerCase()}
+            Inicia la practica de tu vocabulario con {activity.name.toLowerCase()}
           </p>
-          
-          <Button 
+
+          <Button
             className="w-full"
             onClick={() => onSelect(activity)}
           >
-            Start Activity
+            Iniciar Actividad
           </Button>
         </div>
       </CardContent>

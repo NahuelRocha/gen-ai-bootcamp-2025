@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useWordsStore } from '@/store/useWordsStore';
 import { useGroupsStore } from '@/store/useGroupsStore';
@@ -29,22 +28,13 @@ export const Dashboard = () => {
   return (
     <div className="space-y-8">
       <div className="flex justify-between items-center">
-        <h1 className="text-3xl font-bold">Welcome Back!</h1>
-        <Button onClick={() => navigate('/study')}>
-          Start Studying
-        </Button>
+        <h1 className="text-3xl font-bold">¡Bienvenido de nuevo!</h1>
+        <Button onClick={() => navigate('/groups')}>Comenzar a estudiar</Button>
       </div>
 
       {/* Stats Overview */}
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-        <Card>
-          <CardHeader>
-            <CardTitle>Total Words</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-3xl font-bold">{words.length}</p>
-          </CardContent>
-        </Card>
+
 
         <LearningProgress />
 
@@ -54,9 +44,9 @@ export const Dashboard = () => {
       {/* Recent Words */}
       <section className="space-y-4">
         <div className="flex justify-between items-center">
-          <h2 className="text-2xl font-bold">Recent Words</h2>
+          <h2 className="text-2xl font-bold">Palabras recientes</h2>
           <Button variant="link" onClick={() => navigate('/words')}>
-            View All Words
+            Ver todas las palabras
           </Button>
         </div>
 
@@ -70,9 +60,9 @@ export const Dashboard = () => {
       {/* Recent Groups */}
       <section className="space-y-4">
         <div className="flex justify-between items-center">
-          <h2 className="text-2xl font-bold">Word Groups</h2>
+          <h2 className="text-2xl font-bold">Grupos de palabras</h2>
           <Button variant="link" onClick={() => navigate('/groups')}>
-            View All Groups
+            Ver todos los grupos
           </Button>
         </div>
 

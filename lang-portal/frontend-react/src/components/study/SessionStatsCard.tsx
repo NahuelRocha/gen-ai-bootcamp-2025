@@ -26,7 +26,7 @@ export const SessionStatsCard = () => {
             <CardHeader className="pb-1">
                 <div className="flex justify-between items-start">
                     <div>
-                        <h1 className="text-2xl font-semibold tracking-tight">Última Sesión</h1>
+                        <h1 className="text-2xl font-semibold tracking-tight mb-2.5">Última Sesión</h1>
                         <h3 className="text-lg font-semibold">{lastSession?.groupName || "Última Sesión"}</h3>
                         <h3 className="text-lg font-semibold">{lastSession?.activityName}</h3>
                     </div>
@@ -63,17 +63,17 @@ export const SessionStatsCard = () => {
                 ) : lastSession ? (
                     <div className="space-y-2">
                         <div className="text-sm">
-                            <p className="font-medium text-muted-foreground">Estadísticas:</p>
+                            <p className="font-medium text-lg text-muted-foreground">Estadísticas:</p>
                             <div className="mt-1 space-y-1">
-                                <div className="flex justify-between text-sm text-muted-foreground mb-1.5">
+                                <div className="flex justify-between ttext-sm font-medium text-muted-foreground mb-1.5">
                                     <span>Total de Intentos:</span>
                                     <span>{total}</span>
                                 </div>
-                                <div className="flex justify-between text-sm text-muted-foreground">
+                                <div className="flex justify-between text-sm font-medium text-muted-foreground">
                                     <span>Correctas:</span>
                                     <span className="text-green-600">{lastSession.correct}</span>
                                 </div>
-                                <div className="flex justify-between text-sm text-muted-foreground">
+                                <div className="flex justify-between text-sm font-medium text-muted-foreground">
                                     <span>Incorrectas:</span>
                                     <span className="text-red-600">{lastSession.incorrect}</span>
                                 </div>

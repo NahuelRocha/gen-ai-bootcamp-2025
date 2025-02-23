@@ -33,11 +33,11 @@ export const Words = () => {
         order: currentOrder,
       });
     } catch (error) {
-      console.error('Failed to fetch words:', error);
+      console.error('Error al recuperar palabras:', error);
       toast({
         variant: "destructive",
         title: "Error",
-        description: "Failed to fetch words. Please try again later."
+        description: "Error al recuperar palabras. Por favor, inténtelo de nuevo más tarde."
       });
     }
   };
@@ -51,11 +51,11 @@ export const Words = () => {
         order: currentOrder,
       });
     } catch (error) {
-      console.error('Error searching words:', error);
+      console.error('Error al buscar palabras:', error);
       toast({
         variant: "destructive",
         title: "Error",
-        description: "Failed to search words. Please try again."
+        description: "Error al buscar palabras. Por favor, inténtelo de nuevo."
       });
     }
   };
@@ -76,11 +76,11 @@ export const Words = () => {
         order: order as 'asc' | 'desc',
       });
     } catch (error) {
-      console.error('Error sorting words:', error);
+      console.error('Error al ordenar palabras:', error);
       toast({
         variant: "destructive",
         title: "Error",
-        description: "Failed to sort words. Please try again."
+        description: "Error al ordenar palabras. Por favor, inténtelo de nuevo."
       });
     }
   };
@@ -92,8 +92,8 @@ export const Words = () => {
   return (
     <div className="space-y-6">
       <div className="flex justify-between items-center">
-        <h1 className="text-3xl font-bold">Words</h1>
-        <Button>Add New Word</Button>
+        <h1 className="text-3xl font-bold">Palabras</h1>
+        <Button>Agregar nueva palabra</Button>
       </div>
 
       <WordFilters
@@ -105,7 +105,11 @@ export const Words = () => {
       <WordList />
 
       {totalPages > 1 && (
-        <Pagination>
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={handlePageChange}
+        >
           <PaginationContent>
             <PaginationItem>
               <PaginationPrevious

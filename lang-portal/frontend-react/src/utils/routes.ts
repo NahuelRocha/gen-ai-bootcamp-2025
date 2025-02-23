@@ -13,22 +13,22 @@ export const ROUTES = {
 
 export const NAV_ITEMS = [
   {
-    title: 'Dashboard',
+    title: 'Panel',
     path: ROUTES.HOME,
     icon: '📊',
   },
   {
-    title: 'Words',
+    title: 'Palabras',
     path: ROUTES.WORDS,
     icon: '📚',
   },
   {
-    title: 'Groups',
+    title: 'Grupos',
     path: ROUTES.GROUPS.LIST,
     icon: '📑',
   },
   {
-    title: 'Study',
+    title: 'Estudio',
     path: ROUTES.STUDY.HOME,
     icon: '📝',
   },
