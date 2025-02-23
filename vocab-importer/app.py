@@ -35,7 +35,7 @@ def create_generation_form(category, word_count):
             if words:
                 # Create group
                 group = {
-                    "id": 1,  # En una aplicación real, el ID se genera automáticamente
+                    "id": 1, 
                     "name": category,
                     "wordsCount": len(words)
                 }
