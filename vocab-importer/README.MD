@@ -19,6 +19,12 @@ The prototype of the language learning app is built, but we need to quickly popu
 - **LLM**: Ollama2 7b model (local deployment)
 - **Database**: SQLite3
 
+## Hardware Specifications
+- **Operating System**: Windows 11 Pro
+- **RAM**: 16.0 GB (15.3 GB usable)
+- **Processor**: AMD Ryzen 5 5600G with Radeon Graphics, 4.20 GHz
+- **Graphics Card**: None
+
 ## Usage
 1. Run the Streamlit application.
 2. Define the categories and quantities for the vocabulary generation.
@@ -55,5 +61,5 @@ To set up the project, follow these steps:
 
 ## Words Screenshot
 
-![Words Screenshot](./vocab-import2.png)
+![Words Screenshot](./vocab_import2.png)
 
