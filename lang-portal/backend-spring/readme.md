@@ -28,7 +28,7 @@ This project is an API built with Java, Spring Boot, and SQLite3, designed to fa
 
 Here is the entity diagram for the project:
 
-![Entity Diagram](./entity-diagram.mmd)
+[Entity Diagram](./entity-diagram.mmd)
 
 ## API Endpoint Documentation
 
