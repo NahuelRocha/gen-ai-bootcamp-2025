@@ -55,7 +55,10 @@ The system is composed of the following services:
 Below is a Mermaid diagram illustrating the architecture and communication flow between the services:
 
 ![Sequence Diagram](./sequence-diagram.png)
- [Architecture Diagram](./architecture-diagram.mmd)
+
+### Architecture Diagram
+
+[Architecture Diagram](./architecture-diagram.mmd)
 
 ## Usage and Endpoints
 
