@@ -9,7 +9,7 @@ This project demonstrates the orchestration of AI workloads using Docker contain
 - [Project Overview](#project-overview)
 - [Project Video Linkedin](#project-video-linkedin)
 - [Architecture](#architecture)
-  - [Architecture Diagram](#architecture-diagram)
+  - [Sequence Diagram](#sequence-diagram)
 - [Usage and Endpoints](#usage-and-endpoints)
 - [Hardware and AI Models](#hardware-and-ai-models)
 - [Execution Instructions](#execution-instructions)
@@ -50,12 +50,12 @@ The system is composed of the following services:
 - **Megaservice:**  
   Orchestrates the entire workflow, receiving an audio file, sequentially invoking ASR, LLM, and TTS services, and returning the final audio output.
 
-### Architecture Diagram
+### Sequence Diagram
 
 Below is a Mermaid diagram illustrating the architecture and communication flow between the services:
 
-
-![Dashboard Screenshot](./arch-diagram-opea.png)
+![Sequence Diagram](./sequence-diagram.png)
+ [Architecture Diagram](./architecture-diagram.mmd)
 
 ## Usage and Endpoints
 
