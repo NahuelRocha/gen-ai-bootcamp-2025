@@ -1,0 +1,45 @@
+graph TD
+    A[fa:fa-user Cliente] --> B[fa:fa-server API Gateway]
+    
+    style A fill:#2196F3,color:white
+    style B fill:#9C27B0,color:white
+    
+    subgraph Docker Network[fa:fa-network-wired Docker Network]
+        direction TB
+        style DockerNetwork fill:#f0f0f0,stroke:#666,stroke-width:2px
+        
+        B --> C[fa:fa-microphone ASR Service]
+        B --> D[fa:fa-brain LLM Service]
+        B --> E[fa:fa-volume-up TTS Service]
+        
+        style C fill:#4CAF50,color:white
+        style D fill:#FF5722,color:white
+        style E fill:#FFC107,color:black
+        
+        subgraph ASR_Container[ASR Container]
+            direction TB
+            C --> C1[fa:fa-file-alt Speech to Text<br/><i>whisper-small</i>]
+            style ASR_Container fill:#E8F5E9,stroke:#4CAF50
+        end
+        
+        subgraph LLM_Container[LLM Container]
+            direction TB
+            D --> D1[fa:fa-comments Text Processing<br/><i>neural-chat-7b</i>]
+            style LLM_Container fill:#FFE0B2,stroke:#FF5722
+        end
+        
+        subgraph TTS_Container[TTS Container]
+            direction TB
+            E --> E1[fa:fa-wave-square Text to Speech<br/><i>speecht5_tts</i>]
+            style TTS_Container fill:#FFF9C4,stroke:#FFC107
+        end
+        
+        C -->|Text| D
+        D -->|Response| E
+    end
+    
+    E -->|Audio/Text| B
+    B -->|fa:fa-comment-dots Response| A
+
+    classDef service fill:#fff,stroke:#333,stroke-width:2px;
+    classDef docker fill:#f0f0f0,stroke:#666,stroke-width:2px;

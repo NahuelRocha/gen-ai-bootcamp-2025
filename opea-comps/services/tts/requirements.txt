@@ -1,0 +1,11 @@
+fastapi==0.95.2
+uvicorn==0.22.0
+transformers>=4.27.0
+torch==2.2.1+cpu
+torchaudio==2.2.1+cpu
+numpy==1.26.4
+python-multipart==0.0.6
+requests>=2.31.0
+sentencepiece
+protobuf
+soundfile

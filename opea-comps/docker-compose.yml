@@ -1,0 +1,88 @@
+services:
+  whisper-service:
+    build:
+      context: ./services/asr/whisper
+      dockerfile: Dockerfile
+    image: opea/whisper:latest
+    ports:
+      - "7066:7066"
+    environment:
+      - http_proxy=${HTTP_PROXY:-}
+      - https_proxy=${HTTPS_PROXY:-}
+      - no_proxy=${NO_PROXY:-}
+    networks:
+      - opea-network
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:7066/health" ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  asr-service:
+    build:
+      context: ./services/asr
+      dockerfile: Dockerfile
+    image: opea/asr:latest
+    ports:
+      - "9099:9099"
+    depends_on:
+      whisper-service:
+        condition: service_healthy
+    environment:
+      - ASR_ENDPOINT=http://whisper-service:7066
+      - http_proxy=${HTTP_PROXY:-}
+      - https_proxy=${HTTPS_PROXY:-}
+      - no_proxy=${NO_PROXY:-}
+    networks:
+      - opea-network
+
+  tts-service:
+    build:
+      context: ./services/tts
+      dockerfile: Dockerfile
+    image: opea/tts:latest
+    ports:
+      - "7067:7067"
+    networks:
+      - opea-network
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:7067/health" ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  llm-service:
+    build:
+      context: ./services/llm
+      dockerfile: Dockerfile
+    image: opea/llm:latest
+    ports:
+      - "7070:7070"
+    networks:
+      - opea-network
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:7070/health" ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  megaservice:
+    build:
+      context: ./services/megaservice
+      dockerfile: Dockerfile
+    image: opea/megaservice:latest
+    ports:
+      - "8000:8000"
+    environment:
+      - ASR_SERVICE_HOST=asr-service
+      - ASR_SERVICE_PORT=9099
+      - LLM_SERVICE_HOST=llm-service
+      - LLM_SERVICE_PORT=7070
+      - TTS_SERVICE_HOST=tts-service
+      - TTS_SERVICE_PORT=7067
+    networks:
+      - opea-network
+
+networks:
+  opea-network:
+    driver: bridge
