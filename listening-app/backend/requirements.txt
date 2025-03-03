@@ -1,0 +1,25 @@
+# API y servidor
+fastapi==0.104.1
+uvicorn==0.23.2
+python-multipart==0.0.6
+
+# Base de datos
+sqlalchemy==2.0.23
+aiosqlite==0.19.0
+
+# Procesamiento de lenguaje
+langchain==0.0.335
+langchain_openai==0.0.2
+openai
+
+# Conversión de texto a voz
+torch==2.5.1
+torchaudio==2.5.1
+transformers>=4.27.0
+numpy==1.26.4
+sentencepiece
+scipy==1.11.3
+
+# Utilidades
+python-dotenv==1.0.0
+pydantic==2.4.2

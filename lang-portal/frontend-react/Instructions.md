@@ -135,7 +135,7 @@ import axios from 'axios';
 import { Word, Group, StudySession, WordReview, PaginationParams } from './types';
 
 const api = axios.create({
-  baseURL: 'http://localhost:8080', // Adjust to your backend URL
+  baseURL: 'http://localhost:8080',
 });
 
 export const wordsApi = {
